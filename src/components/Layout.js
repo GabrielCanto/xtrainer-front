@@ -48,7 +48,7 @@ export default function Layout() {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        
+
         <Outlet />
       </>
     );

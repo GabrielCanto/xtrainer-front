@@ -1,5 +1,7 @@
 import Axios from "axios";
 import React, { useState } from "react";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 
 export default function Register() {
@@ -24,20 +26,31 @@ export default function Register() {
 
 
     return (
-        <div>
-            <h1>
+        <>
+            <h1 className="mt-5">
                 Register
             </h1>
-
-            <form>
-                <label>Choose Username</label>
-                <input type="text" name="usernameReg" onChange={(e) => {setUsernameReg(e.target.value);}}/>
-                <label>Choose Password</label>
-                <input type="text" name="passwordReg" onChange={(e) => {setPasswordReg(e.target.value)}}/>
-
-                <button type="submit" onClick={registerUser}>Register</button>
-            </form>
-        </div>
+            <Form>
+                    <Form.Group className="mb-3">
+                        <Form.Label htmlFor="usernameReg">Choose Username</Form.Label>
+                        <Form.Control
+                            type="text"
+                            id="usernameReg"
+                            onChange={(event) => { setUsernameReg(event.target.value); }}
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label htmlFor="passwordReg">Choose Password</Form.Label>
+                        <Form.Control
+                            type="password"
+                            id="passwordReg"
+                            onChange={(event) => { setPasswordReg(event.target.value); }}
+                        />
+                        <Button variant="primary" onClick={registerUser}>Register</Button>
+                    </Form.Group>
+                
+            </Form>
+        </>
     )
    
 }
