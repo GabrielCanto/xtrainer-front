@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 
 import Layout from "./components/Layout";

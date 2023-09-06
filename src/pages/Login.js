@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Axios from 'axios';
 import '../css/Login.css';
 import { useNavigate } from "react-router-dom";
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
 
 export default function Login() {
 
@@ -40,20 +43,36 @@ export default function Login() {
     }
 
     return(
-        <div>
-            <h1>
+        <>
+
+            <h1 className="mt-5">
                 Login
             </h1>
-            <form>
-                <label htmlFor="username">Username</label>
-                <input type="text" name="username" id="username" onChange={(event) => { setUsername(event.target.value); }}/>
-                <label htmlFor="password">Password</label>
-                <input type="text" name="password" id="password" onChange={(event) => { setPassword(event.target.value); }}/>
-                <button type="submit" onClick={login}>LOGIN</button>
-            </form>
+
+            <Form>
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="username">Username</Form.Label>
+                    <Form.Control
+                        type="text"
+                        id="username"
+                        onChange={(event) => { setUsername(event.target.value); }}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="password">Password</Form.Label>
+                    <Form.Control
+                        type="password"
+                        id="password"
+                        onChange={(event) => { setPassword(event.target.value); }}
+                    />
+                    <Button variant="primary" onClick={login}>Login</Button>
+                </Form.Group>
+                
+            </Form>
+            
 
           
 
-        </div>
+        </>
     );
 }

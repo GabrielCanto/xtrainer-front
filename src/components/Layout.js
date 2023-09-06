@@ -1,6 +1,9 @@
 import React from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import '../css/Layout.css';
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav'
 
 
 export default function Layout() {
@@ -18,56 +21,35 @@ export default function Layout() {
 
 
     return (
-      <div>
-          <header className="header-container">
-            <nav>
-              <ul className="nav-list">
-                  
-
+      <>
+        <Navbar expand='lg' className="bg-dark">
+          <Container className='justify-content-between'>
+            <Navbar.Brand href="#" className="text-white">Xtrainer</Navbar.Brand>
+            <Navbar.Toggle />
+            <Navbar.Collapse className="justify-content-end">
+              <Nav className="justify-content-end">
                   {
                     auth ? 
                       <>
-                       <p>
-                          Hello, {username}
-                        </p>
-                        <div className="nav-holder">
-                          <li>
-                            <Link to="/dashboard" className="nav-link">Dashboard</Link>
-                          </li>
-                          <li>
+                            <Link to="/dashboard" className="nav-link color-black">Dashboard</Link>
                             <Link to="/register-pupil" className="nav-link">Register Pupil</Link>
-                          </li>
-                          <li>
                             <button className="nav-link logout" onClick={Logout}>Logout</button>
-                          </li>
-                        </div>
-
                       </>
                      
                     
                     
                     : 
                     <>
-                      <div className="nav-holder">
-                        <li>
                           <Link to="/login"  className="nav-link">Login</Link>
-                        </li>
-                        <li>
                           <Link to="/register"  className="nav-link">Register</Link>
-                        </li>
-                      </div>
                     </>
-                     
-                    
                   }
-
-                  
-              </ul>
-            </nav>
-        </header>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
         
         <Outlet />
-  
-      </div>
+      </>
     );
   }
